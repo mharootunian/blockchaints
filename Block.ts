@@ -1,4 +1,5 @@
 import * as crypto from 'crypto'
+import has = Reflect.has;
 
 class Block {
     readonly hash: string;
@@ -21,6 +22,17 @@ class Block {
             .createHash('sha256')
             .update(data)
             .digest('hex');
+    }
+
+    private mine(): {nonce: number, hash: string} {
+        let hash: string;
+        let nonce = 0;
+
+        do {
+            hash = this.calculateHash(++nonce);
+        } while (hash.startsWith('00000') === false);
+
+        return {nonce, hash};
     }
 }
 
