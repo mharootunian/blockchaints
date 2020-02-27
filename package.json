@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc && node ./dist/app.js"
   },
   "keywords": [],
   "author": "",
