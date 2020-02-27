@@ -8,6 +8,7 @@
       "es2017"
     ]
   },
+  "include": ["src"],
   "exclude": [
     "node_modules"
   ]
