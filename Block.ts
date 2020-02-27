@@ -1,5 +1,4 @@
 import * as crypto from 'crypto'
-import has = Reflect.has;
 
 class Block {
     readonly hash: string;
