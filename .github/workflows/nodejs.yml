@@ -2,38 +2,24 @@ name: Node.js CI
 
 on: [push]
 
-# jobs:
-#   build:
-
-#     runs-on: ubuntu-latest
-
-#     strategy:
-#       matrix:
-#         node-version: [8.x, 10.x, 12.x]
-
-#     steps:
-#     - uses: actions/checkout@v2
-#     - name: Use Node.js ${{ matrix.node-version }}
-#       uses: actions/setup-node@v1
-#       with:
-#         node-version: ${{ matrix.node-version }}
-#     - run: npm install
-#     - run: npm build
-#     - run: npm test
-#       env:
-#         CI: true 
-
 jobs:
-  tsc:
-    name: tsc
+  build:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
     steps:
-    - uses: actions/checkout@v1
-    - name: install node v12
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: 12
-    - name: npm install
-      run: npm install
-    - name: tsc
-      uses: icrawl/action-tsc@v1
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: npm run tsc
+    #- run: npm test
+      env:
+        CI: true 
+
