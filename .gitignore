@@ -1,0 +1,8 @@
+#ignore node_modules
+/node_modules
+
+#ignore the dist folder
+/dist
+
+#ignore webstorm/idea folder
+/.idea
